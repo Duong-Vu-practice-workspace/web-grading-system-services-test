@@ -20,7 +20,7 @@ public class ResultServiceApplication {
 
 	@Bean
 	public CommandLineRunner startupInfo() {
-		return args -> log.info("Result Service started successfully");
+		return args -> log.info("Result Service started successfully!!!");
 	}
 
 }
