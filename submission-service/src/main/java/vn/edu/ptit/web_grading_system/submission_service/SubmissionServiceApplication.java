@@ -20,7 +20,7 @@ public class SubmissionServiceApplication {
 
 	@Bean
 	public CommandLineRunner startupInfo() {
-		return args -> log.info("🚀 Submission Service started successfully!!!");
+		return args -> log.info("Submission Service started successfully");
 	}
 
 }
