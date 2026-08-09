@@ -33,3 +33,12 @@ management:
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{trace_id:-},%X{span_id:-}]"
+
+# Pyroscope continuous profiling
+pyroscope:
+  enabled: true
+  endpoint: ${PYROSCOPE_ENDPOINT:http://pyroscope.observability.svc.cluster.local:4100}
+  application-name: ${spring.application.name}
+  labels:
+    region: ${REGION:dev}
+    cluster: ${CLUSTER:dev}
