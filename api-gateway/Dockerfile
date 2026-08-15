@@ -6,8 +6,13 @@ COPY pom.xml .
 COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=builder /build/target/*.jar app.jar
+ADD https://repo1.maven.org/maven2/io/pyroscope/agent/2.1.2/agent-2.1.2.jar /app/pyroscope.jar
+ENV PYROSCOPE_APPLICATION_NAME=grading-api-gateway \
+    PYROSCOPE_SERVER_ADDRESS=http://pyroscope.observability.svc.cluster.local:4100 \
+    PYROSCOPE_FORMAT=jfr \
+    PYROSCOPE_PROFILER_EVENT=itimer
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-javaagent:/app/pyroscope.jar", "-jar", "app.jar"]
