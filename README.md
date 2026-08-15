@@ -12,7 +12,6 @@ src-services/
 ├── submission-service/           # Service xử lý submissions
 ├── executor-service/             # Service thực thi code
 ├── api-gateway/                  # API Gateway
-├── config-server/                # Spring Cloud Config Server
 ├── result-service/               # Service quản lý kết quả
 ├── assignment-service/           # Service quản lý bài tập
 ```
@@ -120,10 +119,6 @@ Thực thi code trong môi trường sandbox an toàn.
 ### api-gateway
 Port: 8080  
 Gateway chính cho toàn bộ hệ thống.
-
-### config-server
-Port: 8888  
-Spring Cloud Config Server quản lý configuration tập trung.
 
 ### result-service
 Quản lý và tính toán kết quả grading.

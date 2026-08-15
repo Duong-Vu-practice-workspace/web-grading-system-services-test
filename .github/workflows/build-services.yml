@@ -10,7 +10,6 @@ on:
       - "submission-service/**"
       - "executor-service/**"
       - "api-gateway/**"
-      - "config-server/**"
       - "result-service/**"
       - "assignment-service/**"
   pull_request:
@@ -42,8 +41,6 @@ jobs:
               - 'executor-service/**'
             api-gateway:
               - 'api-gateway/**'
-            config-server:
-              - 'config-server/**'
             result-service:
               - 'result-service/**'
             assignment-service:
